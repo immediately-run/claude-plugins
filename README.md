@@ -28,3 +28,13 @@ CLI runs through `npx @immediately-run/cli`.
 
 Bump `version` in `plugins/immediately-run/.claude-plugin/plugin.json` with every change;
 users pick it up with `/plugin marketplace update immediately-run-plugins`.
+
+## Editing the skills
+
+This repo is the only copy. The immediately.run workspace enables the plugin from
+`docs/.claude/settings.json` rather than keeping its own. To try an edit before
+publishing it, run `claude --plugin-dir plugins/immediately-run` from this checkout.
+
+## License
+
+MIT
