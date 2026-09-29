@@ -1,6 +1,6 @@
 {
   "name": "immediately-run",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Skills for building immediately.run apps \u2014 starting with turning a Claude artifact into an immediately.run app in its own GitHub repo.",
   "author": {
     "name": "immediately.run",
