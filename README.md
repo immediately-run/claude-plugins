@@ -4,14 +4,16 @@ Plugins for building apps on [immediately.run](https://immediately.run).
 
 ## Install
 
-In Claude Code:
+### Claude Code
 
 ```
 /plugin marketplace add immediately-run/claude-plugins
 /plugin install immediately-run@immediately-run-plugins
 ```
 
-In opencode, add the skills URL to `opencode.json` (project) or
+### opencode
+
+Add the skills URL to `opencode.json` (project) or
 `~/.config/opencode/opencode.json` (global):
 
 ```json
@@ -41,7 +43,7 @@ the checkout:
 | --- | --- |
 | `create-immediately-run-artifact` | Turns a Claude artifact (a claude.ai artifact link or a saved HTML page) into an immediately.run app in its own GitHub repo — prose in MDX, repeated records as typed data, imported images, host theme and host-safe links — then verifies it on the real host and publishes it. Also diagnoses artifact-style apps that "don't load". |
 
-Ask Claude something like *"turn this artifact into an immediately.run app: &lt;link&gt;"*.
+Ask the agent something like *"turn this artifact into an immediately.run app: &lt;link&gt;"*.
 
 **Needs:** `gh` (signed in), Node 20+, Python 3 and Google Chrome. The immediately.run
 CLI runs through `npx @immediately-run/cli`.
