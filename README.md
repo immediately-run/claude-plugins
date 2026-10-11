@@ -107,8 +107,8 @@ commit a copy of `skills/grove-report/example/` into its own git repo and run
 `npx @immediately-run/cli dev` there.
 
 The first skill published here, `create-immediately-run-artifact`, turned a Claude
-artifact into a standalone app. `grove-report` replaces it; the last version is at the
-tag `create-immediately-run-artifact-v0.1.2`.
+artifact into a standalone app. `grove-report` replaces it; its last version is at
+commit [`f801bfc`](https://github.com/immediately-run/skills/tree/f801bfc).
 
 ## License
 
