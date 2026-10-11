@@ -1,0 +1,9 @@
+{
+  "opensWith": { "task": "open-wiki", "version": "1.0" },
+  "kind": "wiki",
+  "components": {
+    "StatTiles": "./components/StatTiles.tsx",
+    "BarChart": "./components/BarChart.tsx",
+    "CardGrid": "./components/CardGrid.tsx"
+  }
+}

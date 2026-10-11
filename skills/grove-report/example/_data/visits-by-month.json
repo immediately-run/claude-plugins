@@ -1,0 +1,8 @@
+[
+  { "label": "Jan", "value": 29100 }, { "label": "Feb", "value": 28400 },
+  { "label": "Mar", "value": 31800 }, { "label": "Apr", "value": 30200 },
+  { "label": "May", "value": 32900 }, { "label": "Jun", "value": 31100 },
+  { "label": "Jul", "value": 33600 }, { "label": "Aug", "value": 32400 },
+  { "label": "Sep", "value": 40700 }, { "label": "Oct", "value": 42300 },
+  { "label": "Nov", "value": 41000 }, { "label": "Dec", "value": 38500 }
+]

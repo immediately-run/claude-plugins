@@ -1,0 +1,36 @@
+.rpt-chart {
+  margin: 1.5em 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shape);
+  background: var(--panel);
+  padding: 14px 16px 8px;
+}
+.rpt-chart__title {
+  font-family: var(--disp);
+  font-weight: 700;
+  color: var(--ink);
+}
+.rpt-chart__readout {
+  font-family: var(--mono);
+  font-size: .8em;
+  color: var(--ink-2);
+  min-height: 1.4em;
+}
+.rpt-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rpt-chart__bar {
+  fill: var(--accent);
+  opacity: .75;
+  outline: none;
+}
+.rpt-chart__bar.is-active {
+  opacity: 1;
+}
+.rpt-chart__label {
+  fill: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 12px;
+}
