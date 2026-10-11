@@ -1,0 +1,39 @@
+{
+  "skills": [
+    {
+      "name": "grove-report",
+      "files": [
+        "example/_data/headline.json",
+        "example/_data/programmes.json",
+        "example/_data/visits-by-month.json",
+        "example/_sections/next-year.mdx",
+        "example/_sections/programmes.mdx",
+        "example/_sections/summary.mdx",
+        "example/_sections/visits.mdx",
+        "example/assets/branches.svg",
+        "example/components/BarChart.css",
+        "example/components/BarChart.tsx",
+        "example/components/CardGrid.css",
+        "example/components/CardGrid.tsx",
+        "example/components/StatTiles.css",
+        "example/components/StatTiles.tsx",
+        "example/home.mdx",
+        "example/immediately.run.json",
+        "scripts/check-render.cjs",
+        "scripts/check-report.mjs",
+        "scripts/extract-inline-images.py",
+        "SKILL.md",
+        "templates/cache.yml"
+      ],
+      "version": "3d5ba81894cd"
+    },
+    {
+      "name": "publish-to-immediately-run",
+      "files": [
+        "SKILL.md",
+        "templates/cache.yml"
+      ],
+      "version": "aae972faea44"
+    }
+  ]
+}

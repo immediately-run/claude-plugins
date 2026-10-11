@@ -5,13 +5,21 @@
     "url": "https://immediately.run"
   },
   "metadata": {
-    "description": "Claude Code plugins for building apps on immediately.run."
+    "description": "Skills for publishing to immediately.run: reports, and later boards, workbooks and apps, that run from GitHub in the reader's browser."
   },
   "plugins": [
     {
       "name": "immediately-run",
-      "source": "./plugins/immediately-run",
-      "description": "Skills for building immediately.run apps — starting with turning a Claude artifact into an immediately.run app in its own GitHub repo."
+      "description": "Write a polished report as a Grove wiki and publish it to an immediately.run link.",
+      "version": "0.2.0",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/grove-report",
+        "./skills/publish-to-immediately-run"
+      ],
+      "homepage": "https://github.com/immediately-run/skills",
+      "license": "MIT"
     }
   ]
 }

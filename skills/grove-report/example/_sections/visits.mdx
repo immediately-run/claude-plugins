@@ -1,0 +1,12 @@
+import monthly from '../_data/visits-by-month.json'
+
+## Visits
+
+Monthly visits across all three branches. The September jump is the first full
+month of evening opening at Harbour.
+
+![Map of the three branches along the river: Northgate in the north, Central in the middle, Harbour downstream](./assets/branches.svg)
+
+<BarChart title="Visits per month, all branches" unit="visits" data={monthly} />
+
+<Callout variant="note" title="How we count">Door counters at each entrance, halved for the double count of in and out. Event-only visits after hours are included.</Callout>

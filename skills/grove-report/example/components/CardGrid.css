@@ -1,0 +1,36 @@
+.rpt-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 1.5em 0;
+}
+.rpt-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shape);
+  background: var(--panel);
+  padding: 14px 16px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.rpt-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--accent);
+}
+.rpt-card__tag {
+  font-family: var(--mono);
+  font-size: .72em;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent);
+}
+.rpt-card__title {
+  font-family: var(--disp);
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 4px 0 6px;
+  color: var(--ink);
+}
+.rpt-card__body {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: .95em;
+}

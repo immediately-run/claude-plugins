@@ -1,0 +1,91 @@
+# Publishes a pre-built zip of this repo to its own GitHub Pages on every push to
+# main. immediately.run looks for it at
+#   https://<owner>.github.io/<repo>/cached_repositories/<branch>.zip
+# and loads from it instead of the GitHub API, which is slower and limited to 60
+# requests an hour for readers who are not signed in. Without this file a public
+# repo still works, just slower, and it stops loading for a busy audience.
+#
+# Turn Pages on once before the first run (the default workflow token cannot):
+#   gh api -X POST repos/<owner>/<repo>/pages -f build_type=workflow
+# or Settings → Pages → Source: GitHub Actions.
+#
+# Only for PUBLIC repos: a Pages site is public, so it would publish a private
+# repo's content.
+#
+# Actions are pinned by commit and the CLI by exact version, because this workflow
+# can write to Pages; bump them deliberately.
+
+name: Cache for immediately.run
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      # An app with a lockfile gets its dependencies bundled into the zip, so it boots
+      # without resolving packages live; a content-only repo (a report) has none.
+      - name: Install dependencies (apps only)
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --ignore-scripts --no-audit --no-fund || echo "::warning::npm ci failed; the zip will resolve packages from the CDN"
+          fi
+
+      # Two keys for the same build: the branch name, and the commit sha for links
+      # pinned to a commit.
+      - name: Build cache zip
+        run: |
+          bundle=""
+          [ -f package-lock.json ] && bundle="--bundle-packages"
+          for ref in "${{ github.ref_name }}" "${{ github.sha }}"; do
+            npx -y @immediately-run/cli@0.9.1 cache-zip \
+              --owner "${{ github.repository_owner }}" \
+              --repo "${{ github.event.repository.name }}" \
+              --ref "$ref" \
+              --default-branch "${{ github.event.repository.default_branch }}" \
+              $bundle \
+              --out "_site/cached_repositories/$ref.zip"
+          done
+
+      - name: Write index.html
+        run: |
+          cat > _site/index.html <<HTML
+          <!doctype html><meta charset="utf-8">
+          <title>${{ github.event.repository.name }}</title>
+          <meta http-equiv="refresh" content="0; url=https://immediately.run/present/github/${{ github.repository }}/main">
+          <p><a href="https://immediately.run/present/github/${{ github.repository }}/main">Read it on immediately.run</a></p>
+          HTML
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

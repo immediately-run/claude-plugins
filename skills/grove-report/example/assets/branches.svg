@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" font-family="sans-serif">
+  <rect width="640" height="200" rx="12" fill="#14532d" opacity=".12"/>
+  <path d="M0 140 C 120 110, 220 170, 330 130 S 520 90, 640 120" fill="none" stroke="#2563eb" stroke-width="10" opacity=".55"/>
+  <g fill="#c026d3"><circle cx="110" cy="70" r="12"/><circle cx="330" cy="60" r="12"/><circle cx="520" cy="150" r="12"/></g>
+  <g font-size="16" fill="#6b7280"><text x="130" y="76">Northgate</text><text x="350" y="66">Central</text><text x="540" y="156">Harbour</text></g>
+</svg>

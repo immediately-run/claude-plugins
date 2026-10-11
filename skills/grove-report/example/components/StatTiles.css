@@ -1,0 +1,35 @@
+.rpt-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 1.5em 0;
+}
+.rpt-stat {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-shape);
+  background: var(--panel);
+  padding: 14px 16px;
+}
+.rpt-stat__value {
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: 1.9em;
+  line-height: 1.1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.rpt-stat__label {
+  font-family: var(--mono);
+  font-size: .75em;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-2);
+  margin-top: 6px;
+}
+.rpt-stat__note {
+  font-size: .85em;
+  color: var(--ink-3);
+  margin-top: 2px;
+}

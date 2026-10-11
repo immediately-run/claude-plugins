@@ -6,7 +6,7 @@ Usage: extract-inline-images.py <artifact.html> <out-dir>
 Writes <out-dir>/img/imgNN.<ext> for each image, in document order, and
 <out-dir>/stripped.html with each data URI replaced by `IMG:imgNN.<ext>(NKB)`,
 so the markup is small enough to read and the images can be renamed and
-imported from src/assets/.
+moved into the report's assets/ folder.
 """
 import base64, os, re, sys
 
